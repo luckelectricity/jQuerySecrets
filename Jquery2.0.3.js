@@ -58,7 +58,7 @@ var
 	core_trim = core_version.trim,		//局部变量,压缩
 
 	// Define a local copy of jQuery
-	jQuery = function( selector, context ) {
+	jQuery = function (selector, context) {   // 定义函数jQuery  jQuery = function () {}
 		// The jQuery object is actually just the init constructor 'enhanced'
 		return new jQuery.fn.init( selector, context, rootjQuery );
 	},
@@ -123,7 +123,7 @@ jQuery.fn = jQuery.prototype = {
 				if ( match[1] ) {
 					context = context instanceof jQuery ? context[0] : context;
 
-					// scripts is true for back-compat 
+					// scripts is true for back-compat
 					jQuery.merge( this, jQuery.parseHTML(
 						match[1],
 						context && context.nodeType ? context.ownerDocument || context : document,
@@ -706,7 +706,7 @@ jQuery.extend({
 	},
 
 	// A global GUID counter for objects
-	guid: 1,  
+	guid: 1,
 
 	// Bind a function to a context, optionally partially applying any
 	// arguments.
@@ -2846,7 +2846,7 @@ jQuery.contains = Sizzle.contains;
 // String to Object options format cache
 var optionsCache = {};
 
-// Convert String-formatted options into Object-formatted ones and store in cache
+// Convert String-formatted options into Object-formatted ones and store in cache 将String格式的选项转换为Object格式的选项并存储在缓存中
 function createOptions( options ) {
 	var object = optionsCache[ options ] = {};
 	jQuery.each( options.match( core_rnotwhite ) || [], function( _, flag ) {
@@ -5028,10 +5028,8 @@ if ( !jQuery.support.focusinBubbles ) {
 }
 
 jQuery.fn.extend({
-
 	on: function( types, selector, data, fn, /*INTERNAL*/ one ) {
 		var origFn, type;
-
 		// Types can be a map of types/handlers
 		if ( typeof types === "object" ) {
 			// ( types-Object, selector, data )
