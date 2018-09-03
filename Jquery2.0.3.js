@@ -38,15 +38,15 @@ var
 	_jQuery = window.jQuery,
 
 	// Map over the $ in case of overwrite
-	_$ = window.$,
+	_$ = window.$,  // 防止冲突
 
 	// [[Class]] -> type pairs
-	class2type = {},
+	class2type = {}, // $.type() 类型判断
 
 	// List of deleted data cache ids, so we can reuse them
 	core_deletedIds = [],
 
-	core_version = "2.0.3",
+	core_version = "2.0.3",  // 存储jq的版本号
 
 	// Save a reference to some core methods
 	core_concat = core_deletedIds.concat,
@@ -55,7 +55,7 @@ var
 	core_indexOf = core_deletedIds.indexOf,
 	core_toString = class2type.toString,
 	core_hasOwn = class2type.hasOwnProperty,
-	core_trim = core_version.trim,		//局部变量,压缩
+	core_trim = core_version.trim,		//局部变量,压缩  存储变量，重点利于压缩
 
 	// Define a local copy of jQuery
 	jQuery = function (selector, context) {   // 定义函数jQuery  jQuery = function () {}
