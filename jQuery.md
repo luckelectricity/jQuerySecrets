@@ -38,3 +38,16 @@ jQuery.prototype.init.prototype = jQuery.prototype
 
 jQuery().css()
 ```
+### 无new对象
+这样就无new创建了对象，如果函数这样写
+```
+function jQuery(){
+  return new jQuery()
+}
+```
+就是死循环了，每次new 就会创建一个new jQuery 然后又创建一个。。。。。
+
+根据上面的代码,就能得到以下等式
+```
+jQuery().__proto__ === jQuery.prototype.init.prototype
+```

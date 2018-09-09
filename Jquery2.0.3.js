@@ -64,18 +64,18 @@ var
 	},
 
 	// Used for matching numbers
-	core_pnum = /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source,
+	core_pnum = /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source,  // 找数字，正负数字，小数，科学计数法
 
 	// Used for splitting on whitespace
-	core_rnotwhite = /\S+/g,
+	core_rnotwhite = /\S+/g, // 分隔单词 空格分开
 
 	// A simple way to check for HTML strings
 	// Prioritize #id over <tag> to avoid XSS via location.hash (#9521)
 	// Strict HTML recognition (#11290: must start with <)
-	rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,
+	rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/, // 防止XSS攻击
 
 	// Match a standalone tag
-	rsingleTag = /^<(\w+)\s*\/?>(?:<\/\1>|)$/,
+	rsingleTag = /^<(\w+)\s*\/?>(?:<\/\1>|)$/, // 匹配空标签 <div></div>
 
 	// Matches dashed string for camelizing
 	rmsPrefix = /^-ms-/,
@@ -95,9 +95,9 @@ var
 
 jQuery.fn = jQuery.prototype = {
 	// The current version of jQuery being used
-	jquery: core_version,
+	jquery: core_version, // 版本
 
-	constructor: jQuery,
+	constructor: jQuery, // 指向特定构造函数，修正constructor指向
 	init: function( selector, context, rootjQuery ) {
 		var match, elem;
 
@@ -109,7 +109,7 @@ jQuery.fn = jQuery.prototype = {
 		// Handle HTML strings
 		if ( typeof selector === "string" ) {
 			if ( selector.charAt(0) === "<" && selector.charAt( selector.length - 1 ) === ">" && selector.length >= 3 ) {
-				// Assume that strings that start and end with <> are HTML and skip the regex check
+				// Assume that strings that start and end with <> are HTML and skip the regex check 假设以<>开头和结尾的字符串是HTML并跳过正则表达式检查
 				match = [ null, selector, null ];
 
 			} else {
